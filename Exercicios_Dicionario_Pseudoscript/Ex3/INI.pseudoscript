@@ -1,0 +1,43 @@
+#Calculadora de Médias: Criar um programa que calcule a média de notas fornecidas
+#pelo utilizador para vários alunos. Nota: Deve questionar o utilizador de todas as
+#inserções necessárias.
+
+
+aluno = ('Nome:':
+         'Nota:'):
+
+
+funcao inserir_dados():
+
+    entrada("Por favor introduza o nome do aluno: ", nome_aluno)
+    entrada("Por favor introduza a nota do aluno: ", nota_aluno)
+        aluno[nome_aluno] = nota_aluno
+
+    entrada("Deseja calcular a média ou adicionar mais alunos? [1: SIM / 2: NÃO]", escolha)
+        se escolha == 1
+            imprime(calcular_media())
+        se escolha == 2
+            imprime(inserir_dados())
+
+
+funcao calcular_media(aluno):
+
+    soma = 0
+    total_alunos = tamanho(aluno)
+
+    para cada chave em aluno:
+        soma = soma + valor
+            retorne restulado
+
+    resultado % total_alunos 
+            retorne media
+
+    imprime(resultado)
+
+    
+imprime(inserir_dados())
+
+
+aluno = (nome -> notas)
+    notas = [notas]
+        soma notas em disciplinas do aluno {chave} % tamanho.notas
