@@ -7,16 +7,16 @@ aluno = ()
 notas = []
 
 funcao inserir_dados():
-
+    
     entrada("Por favor introduza o nome do aluno: ", nome_aluno)
     entrada("Por favor introduza a nota de MACS do aluno: ", nota_aluno1)
     entrada("Por favor introduza a nota de PT do aluno: ", nota_aluno2)
     entrada("Por favor introduza a nota de ING do aluno: ", nota_aluno3)
-        aluno(chave) = nome_aluno
-        aluno(valor) = notas[nota_aluno1, nota_aluno_2, nota_aluno3]
-     imprime("O aluno {chave} tem as notas {valor[notas]}.")
-       
+        aluno.chave() = nome_aluno
+        aluno.valor() = notas[nota_aluno1, nota_aluno_2, nota_aluno3]
 
+    imprime("O aluno {chave} tem as notas {valor[notas]}.")
+       
     entrada("Deseja calcular a média ou adicionar mais alunos? [1: SIM / 2: NÃO]", escolha)
         se escolha == 1
             imprime(calcular_media())
@@ -42,3 +42,7 @@ funcao calcular_media(aluno):
 
     
 imprime(inserir_dados())
+
+
+#dicionario[aluno].adicionar(nota1, nota2, nota3)
+#dictionario na posicao aluno(chave) adiciona nota(valor)

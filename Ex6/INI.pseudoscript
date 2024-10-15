@@ -1,0 +1,29 @@
+#Registo de Compras: Criar um programa que permita ao utilizador registar suas
+#compras, associando produtos e preços. O programa deve calcular o total das
+#compras. Nota: O aluno deve criar um loop para permitir várias entradas de compras.
+
+
+registo_compras = ()
+
+
+
+funcao start():
+
+    imprime("Bom dia bem vindo a sua app de compras")
+        entrada("Deseja registar compras ou deseja calcular o valor total das compras?", escolha1)
+            se escolha1 == 1
+                registar_compras()
+            se escolha1 == 2
+                total_compras()
+            break("Reposta errada")
+            
+
+funcao registar_compras():
+
+    entrada("Por favor introduza o seu  artigo", artigo1)
+        entrada("Por favor introduza o valor do artigo", valor1)
+    
+    regfisto
+
+
+funcao total_compras():

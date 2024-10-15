@@ -49,4 +49,4 @@ objetos/modelos {variáveis / funções}
 
 #############
 
-a = char ["abcd"] = string
+a = char ["a,b,c,d"] = string

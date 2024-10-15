@@ -75,3 +75,27 @@ imprimir(start())
     
 
 
+pai leva mae fica mae
+retorna pai
+
+pai leva filho fica filho
+retorna pai e mae
+
+pai leva outrofilho fica filho
+retorna o pai
+
+pai leva mae fica pai
+retorna mae
+
+policia leva prisoneiro
+volta a pai
+
+pai leva mae fica pai
+volta mae
+
+mae leva filha
+volta o pai e mae fica o pai
+
+mae leva a filha
+retorna mae e leva o pai 
+

@@ -1,0 +1,27 @@
+#Tradutor Simples: Criar um dicionário com algumas palavras em um idioma e suas
+#traduções. O utilizador deve fornecer uma palavra e o programa deve traduzi-la. Nota:
+#O aluno deve criar um dicionário de traduções e solicitar a palavra ao utilizador.
+
+dicionario = ('computador', ('ordinateur', 'computer')
+              'exercicio', ('exercice', 'exercise')
+              'lista', ('liste', 'list')
+              )
+
+
+
+
+
+funcao traduzir():
+    
+
+    imprime(dicionario.chave())
+    entrada("Introduza a palavra que pretende traduzir dentro das possibilidades acima", escolha)
+    
+    para cada chave em  dicionario.chave()
+        se chave NAO está em dicionario.chave()
+            imprime("A palavra não existe no dicionário.")
+        se chave == escolha
+            imprime(dicionario.escolha(valor)) #imprime as traducoes na posicao escolha que é igual a chave
+            imprime("Estas são as traduções da sua palavra.")
+
+imprime(traduzir())

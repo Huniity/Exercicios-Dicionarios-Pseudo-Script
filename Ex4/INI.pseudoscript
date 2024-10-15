@@ -4,3 +4,60 @@
 
 
 https://stackoverflow.com/questions/64078704/python-console-inventory-stock-manager-using-dictionaries
+
+funcao incio():
+
+    imprime("Bem vindo ao seu controlo de stock.")
+    entrada("Deseja adicionar um produto ou remover um produto do stock existente", escolha)
+    imprime("SIM: 1 | NÃO: 2")
+        se escolha == 1
+            adicionar_stock()
+        se escolha == 2
+            remover_stock()
+
+
+funcao remover_stock():
+
+novo_stock = ()
+    entrada("Por favor introduza o nome do produto para acedermos ao stock atual", procura_nome_produto)
+        para cada chave,valor em stock()
+            se procura_nome_produto NAO está em stock.chaves() 
+                imprime("O produto não existe, deseja cria-lo?")
+                    entrada("SIM: 1 | NÃO: 2", escolha3)
+                        se escolha3 == 1
+                            adicionar_stock()
+                        se escolha3 == 2
+                            inicio()
+            se procura_nome_produto == chave.stock()
+                imprime(chave,valor)
+                imprime("Deseja remover o produto")
+                entrada("SIM: 1 | NÃO: 2", escolha4)
+                    se escolha4 == 1
+                        para cada chave,valor em stock()
+                            se chave != procura_nome_produto
+                                novo_stock[chave].adicionar(valor)
+                                    retorne novo_stock
+                                        imprime("Este é o seu novo stock" + novo_stock+ )
+                    se escolha4 == 2
+                            inicio()
+        
+
+funcao adicionar_stock():
+
+    stock = ('produto':
+             'quantidade':)
+
+    entrada("Introduza o nome do produto que quer adicionar", nome_produto)
+    entrada("Introduza a quantidade do produto", qtd_produto)
+    imprime("O produto " + nome_produto + " tem atualmente " + qtd_produto + )
+        stock[nome_produto].adicionar(qtd_produto)
+    
+    entrada("Deseja adicionar mais algum produto?" escolha2)
+            se escolha2 == 1
+                adicionar_stock()
+            se escolha2 == 2
+                remover_stock()
+
+
+
+inicio()
