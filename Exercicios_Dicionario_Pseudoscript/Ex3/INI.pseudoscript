@@ -3,15 +3,19 @@
 #inserções necessárias.
 
 
-aluno = ('Nome:':
-         'Nota:'):
-
+aluno = ()
+notas = []
 
 funcao inserir_dados():
 
     entrada("Por favor introduza o nome do aluno: ", nome_aluno)
-    entrada("Por favor introduza a nota do aluno: ", nota_aluno)
-        aluno[nome_aluno] = nota_aluno
+    entrada("Por favor introduza a nota de MACS do aluno: ", nota_aluno1)
+    entrada("Por favor introduza a nota de PT do aluno: ", nota_aluno2)
+    entrada("Por favor introduza a nota de ING do aluno: ", nota_aluno3)
+        aluno(chave) = nome_aluno
+        aluno(valor) = notas[nota_aluno1, nota_aluno_2, nota_aluno3]
+     imprime("O aluno {chave} tem as notas {valor[notas]}.")
+       
 
     entrada("Deseja calcular a média ou adicionar mais alunos? [1: SIM / 2: NÃO]", escolha)
         se escolha == 1
@@ -24,20 +28,17 @@ funcao calcular_media(aluno):
 
     soma = 0
     total_alunos = tamanho(aluno)
+    tamanho_notas = notas.tamanho
 
     para cada chave em aluno:
-        soma = soma + valor
-            retorne restulado
+         enquanto tamanho_notas > 0
+                  para cada nota em aluno(valor[notas]):
+                           soma = soma + nota
+                  retorne resultado
 
-    resultado % total_alunos 
+    resultado % tamanho_notas
             retorne media
-
-    imprime(resultado)
+            imprime(media)   
 
     
 imprime(inserir_dados())
-
-
-aluno = (nome -> notas)
-    notas = [notas]
-        soma notas em disciplinas do aluno {chave} % tamanho.notas
