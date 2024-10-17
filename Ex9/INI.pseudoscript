@@ -1,0 +1,74 @@
+#Ranking de Pontuações: Criar um programa que permita ao utilizador inserir nomes e
+#pontuações de jogadores e, em seguida, mostrar um ranking dos jogadores com as
+#melhores pontuações.
+
+
+rankings = ()
+
+
+funcao AdicionaPessoa(nome)
+    se nome NAO em string ou tamanho.nome() < 2:
+        crash("O nome tem de ter mais de 2 caráteres")
+
+    se  nome em rankings.chaves():
+        crash("Nome já existe")
+
+    rankings[nome] = []
+
+funcao AdicionaRanking(nome, rank)
+    se rank NAO numero:
+        crash("O ranking deve ser numérico")
+    se rank < 0 
+        crash("O ranking não pode ser negativo")
+    
+    se nome NAO em string ou tamanho.nome() < 2:
+        crash("O nome tem de ter mais de 2 caráteres")
+
+    se nome NAO EM rankings.chaves():
+        entrada("O nome {nome} ainda não está registado. Pretende registar? [sim, yes, nao, no]", registar)
+        se registar EM ["sim", "yes"]:
+            AdicionaPessoa(nome)
+        senao:
+            crash("Adicione a pessoa primeiro")
+        
+    rankings[nome].adiciona(rank)
+
+funcao OrdenarRanking():
+
+pos = 0
+
+enquanto rankings.tamanho > 0
+    para cada nome, rank em rankings    
+        para cada rank em valor.rankings
+            se rank[pos][rank] > rank[pos+1][rank]
+                rank[pos][rank], rank[pos+1][rank] = rank[pos+1][rank], rank[pos][rank]
+                pos = pos + 1
+
+
+
+funcao ImprimirRanking():
+
+    para cada nome, rank em rankings
+        imprime("Agora segue o ranking final de todas as pessoas:
+                
+                {nome}  |  {rank}
+            
+        ")
+
+
+
+entrada("Escolha uma opção (1: Adicionar nome da pessoa | 2: Adicionar Ranking a pessoa | 3: Imprimir o ranking Final e ordenado)", escolha)
+    escolha == 1
+    entrada("Por favor introduza o nome a pessoa", nome_pessoa)
+    AdicionaPessoa(nome_pessoa)
+    imprime("{nome_pessoa} adicionado com sucesso")
+    
+    escolha == 2
+    entrada("Qual o nome da pessoa que deseja adicionar o ranking)", nome_pessoa)
+    entrada("Qual o ranking da pessoa?", ranking_pessoa)
+    AdicionaRanking(nome_pessoa, ranking_pessoa)
+    
+    escolha == 3
+    ranking_ordenado = ordenarRanking()
+
+    ImprimirRanking(ranking_ordenado)

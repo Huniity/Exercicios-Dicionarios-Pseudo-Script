@@ -1,0 +1,64 @@
+#Dicionário de Sinónimos: Criar um programa que forneça sinónimos para palavras
+#fornecidas pelo utilizador. Nota: O aluno deve criar um dicionário de sinónimos.
+
+sinonimos = ('Palavra Escolhida':
+                ('Sinonimo' 'Sinonimo' 'Sinonimo' 
+                )
+            )
+
+
+funcao AdicionaPalavra(palavra)
+    se palavra NAO em string ou tamanho.palavra() < 1:
+        crash("A palavra tem de ter mais de 2 caráteres")
+
+    se  palavra em sinonimos.chaves():
+        crash("Palavra já existe")
+
+    sinonimos[palavra] = []
+
+funcao AdicionaSinonimo(palavra, sinonimo)
+
+    se palavra NAO em string ou tamanho.sinonimos() < 1:
+        crash("A palavra tem de ter mais de 2 caráteres")
+
+    se palavra NAO EM sinonimos.chaves():
+        entrada("O nome {nome} ainda não está registado. Pretende registar? [sim, yes, nao, no]", registar)
+        se registar EM ["sim", "yes"]:
+            AdicionaPalavra(nome)
+        senao:
+            crash("Adicione a palavra primeiro")
+        
+    sinonimos[palavra].adiciona(sinonimo)
+
+
+funcao procuraSinonimos(palavra, sinonimo)
+    entrada("Por favor introduz a palavra a procurar", palavra_escolhida)
+        
+        se palavra_escolhida NAO ESTA em sinonimos OU NAO ESTA em listaSinonimos():
+            entrada("Palavra não existe, Deseja inserir a palavra? [sim, yes, nao, no]"opcao)
+                se opcao EM ["sim", "yes"]
+                    AdicionaPalavra(palavra)
+                senao:
+                    crash("Adicione a palavra primeiro") 
+
+        se palavra_escolhida ESTA em sinonimos OU ESTA em listaSinonimos():
+            para cada palavra,sinonimo em sinonimos()
+                para cada sinonimo em listaSinonimos()
+                se palavra_escolhida == palavra OU palavra_escolhida == sinonimo
+                imprime("A palavra {palavra} é sinonimo de {sinonimo}")
+
+
+entrada("Escolha uma opção (1: Adicionar uma palavra | 2: Adicionar Ranking a pessoa | 3: Imprimir o ranking Final e ordenado)", escolha)
+    escolha == 1
+    entrada("Por favor introduza uma palavra", palavra_user)
+    AdicionaPalavra(palavra_user)
+    imprime("{palavra_user} adicionado com sucesso")
+    
+    escolha == 2
+    entrada("Qual a palavra que deseja adicionar)", palavra_user)
+    entrada("Qual o sinonimo desta palavra?", palavra_sinonimo)
+    AdicionaSinonimo(palavra_user, palavra_sinonimo)
+    
+    escolha == 3
+    entrada("Qual a palavra que deseja adicionar)", palavra_user)
+    procuraSinonimo()

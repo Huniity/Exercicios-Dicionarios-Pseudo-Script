@@ -1,0 +1,45 @@
+#Sistema de Reservas de Viagens: Criar um programa que permita ao utilizador
+#reservar voos, hotéis e alugar carros para uma viagem. Nota: O aluno deve criar
+#estruturas para representar voos, hotéis e carros e permitir que o usuário faça
+#reservas.
+
+
+booking = {
+    voo: {
+        'Faro to Maldives'
+        'Faro to Dubai'
+        'Faro to Miami'
+    }
+    hotel:
+
+}
+
+
+
+
+voo -> Faro Maldives
+            -> hotel -> Conrad
+                        Riu
+                        Pestana
+            -> carro -> Renault Clio Rs Line 
+                        Bmw Serie5
+                        Lamborghini Urus
+
+    -> Faro Dubai
+            -> hotel -> Conrad
+                        Riu
+                        Pestana
+            -> carro -> Renault Clio Rs Line
+                        Bmw Serie5
+                        Lamborghini Urus
+    -> Faro Paris
+            -> hotel -> Conrad
+                        Riu
+                        Pestana
+            -> carro -> Renault Clio Rs Line
+                        Bmw Serie5
+                        Lamborghini Urus
+
+
+attackertv.so         
+visualgo.net               

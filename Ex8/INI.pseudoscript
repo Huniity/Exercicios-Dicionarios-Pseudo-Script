@@ -2,16 +2,69 @@
 #base no seu ano de nascimento. Nota: O aluno deve solicitar o ano de nascimento ao
 #utilizador.
 
+idades = ()
 
-idades = {nome : idade}
+
+funcao AdicionaPessoa(nome)
+    se nome NAO em string ou tamanho.nome() < 2:
+        crash("O nome tem de ter mais de 2 caráteres")
+
+    se  nome em idades.chaves():
+        crash("Nome já existe")
+
+    idades[nome] = []
 
 
-ano = 2024
-
-funcao solicitar_ano():
-
-    entrada("Por favor introduza o nome da pessoa", nome)
-    entrada("Por favor introduza a idade da pessoa", idade)
-        idades[nome] = idade
+funcao AdicionaNascimento(nome, ano)
+    se ano NAO numero:
+        crash("O ano deve ser numérico")
+    se ano < 0 
+        crash("O ano não pode ser negativo")
     
-            imprime("Deseja introduzoir ")
+    se nome NAO em string ou tamanho.nome() < 2:
+        crash("O nome tem de ter mais de 2 caráteres")
+
+    se nome NAO EM idades.chaves():
+        entrada("O nome {nome} ainda não está registado. Pretende registar? [sim, yes, nao, no]", registar)
+        se registar EM ["sim", "yes"]:
+            AdicionaPessoa(nome)
+        senao:
+            crash("Adicione a pessoa primeiro")
+        
+    idades[nome].adiciona(ano)
+
+
+funcao CalcularIdade():
+
+resultado = ()
+
+    para cada nome, ano em idades:
+    ano_atual = 2024
+        para cada ano em idades:
+            idade = ano_atual - ano
+        resultado[nome] = idade
+    
+    retorne resultado
+        
+funcao ImprimirIdade(idade_pessoa)
+    para cada nome, idade em resultado
+        imprime("O {nome} tem {idade}.")
+
+
+escolha = 0
+
+entrada("Escolha uma opção (1: Adicionar nome da pessoa | 2: Adicionar Ano a pessoa | 3: Calcular a idade da pessoa)", escolha)
+    escolha == 1
+    entrada("Por favor introduza o nome a pessoa", nome_pessoa)
+    AdicionaPessoa(nome_pessoa)
+    imprime("{nome_pessoa} adicionado com sucesso")
+    
+    escolha == 2
+    entrada("Qual o nome da pessoa que deseja adicionar a idade?", nome_pessoa)
+    entrada("Qual o ano de nascimento da pessoa?", nascimento_pessoa)
+    AdicionaNascimento(nome_pessoa, nascimento_pessoa)
+    
+    escolha == 3
+    idade = calcularIdade()
+
+    ImprimirIdades(idade)

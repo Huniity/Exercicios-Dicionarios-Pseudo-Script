@@ -110,7 +110,7 @@ funcao Menu():
 
 funcao AdicionaAluno(nome):
     se nome NAO string ou nome.tamanho() < 2:
-        crash("Nome deve contsar pelo menos 2 caráteres")
+        crash("Nome deve conter pelo menos 2 caráteres")
     
     se nome em notas.chaves():
         crash("Aluno {nome} já existe")

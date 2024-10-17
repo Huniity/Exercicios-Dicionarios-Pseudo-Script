@@ -1,0 +1,92 @@
+#Gestão de Projetos: Criar um programa que permita ao utilizador gerir projetos. Cada
+#projeto deve ter um nome, uma descrição e uma lista de tarefas.
+
+gerenciador = (projeto
+                (
+                    'Descricao' = descricao,
+                    'Tarefas' = tarefas,
+                )
+                )
+
+
+
+funcao AdicionaProject(projeto):
+
+
+    se projeto NAO string E se projeto > tamanho.projeto() > 0
+        crash("Projeto tem de conter caráteres")
+
+    se projeto ESTA em gerenciador()
+        crash("Este projeto já existe por favor adicione outro nome para este projeto")
+
+    gerenciador[projeto] = [detalhes())]
+
+
+
+funcao AdicionaDesc(projecto, descricao):
+
+    se projeto NAO string E se projeto > tamanho.projeto() > 0
+        crash("Projeto tem de conter caráteres")
+
+    se projeto NAO ESTA em gerenciador()
+        crash("Este projeto nãoexiste por favor adicione um projeto primeiro")
+        AdicionaProject()
+
+    se descricao NAO string E se descricao > tamanho.descricao() > 0
+        crash("A descricao tem de conter carateres")
+
+    se descricao ESTA em gerenciador[projeto][descricao]()
+        crash("Projeto ja tem uma descricao associada")
+
+    gerenciador[projeto] = {
+                            'Descricao' = descricao,
+                            'Tarefas' = [], 
+                            }
+
+
+
+funcao AdicionaTarefa(projeto, tarefa):
+
+    se projeto NAO string E se projeto > tamanho.projeto() > 0
+        crash("Projeto tem de conter caráteres")
+
+    se projeto NAO ESTA em gerenciador()
+        crash("Este projeto nãoexiste por favor adicione um projeto primeiro")
+        AdicionaProject()
+
+    se tarefa NAO string E se projeto > tamanho.tarefa() > 0
+        crash("Tarefa tem de conter caráteres")
+
+    se tarefa ESTA em gerenciar[projeto][tarefas]()
+        crash("Já existe uma tarefa para este projeto")
+
+    gerenciador.projeto.tarefas.adicione(tarefa)
+
+
+
+funcao ImprimirProjeto():
+
+    para cada projeto em projecto.chaves()
+        para cada descricao, tarefa em projeto
+            imprime(" O seu projeto {projeto} é: {descricao} e tem como objetivo {tarefa}")
+
+
+entrada("Escolha uma opção (1: Adicionar um projeto | 2: Adicionar uma descrição ao projeto | 3: Adicionar uma tarefa ao projeto)", escolha)
+    escolha == 1
+    entrada("Por favor introduza um projeto", user_project)
+    AdicionaProject(user_project)
+    imprime("{user_project} adicionado com sucesso")
+    
+    escolha == 2
+    entrada("Por favor introduza um projeto", user_project)
+    entrada("Qual a descrição deste projeto?", project_desc)
+    AdicionaDesc(user_project, project_desc)
+    
+    escolha == 3
+    entrada("Por favor introduza um projeto", user_project)
+    entrada("Qual a descrição deste projeto", project_desc)
+    entrada("Qual a tarefa deste projeto?", project_tarefa)
+    AdicionaTarefa(user_project, project_tarefa)
+    
+
+    ImprimirProjeto()
