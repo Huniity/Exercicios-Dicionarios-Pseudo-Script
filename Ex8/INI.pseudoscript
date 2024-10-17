@@ -1,0 +1,17 @@
+#Calculadora de Idade: Criar um programa que calcule a idade de várias pessoas com
+#base no seu ano de nascimento. Nota: O aluno deve solicitar o ano de nascimento ao
+#utilizador.
+
+
+idades = {nome : idade}
+
+
+ano = 2024
+
+funcao solicitar_ano():
+
+    entrada("Por favor introduza o nome da pessoa", nome)
+    entrada("Por favor introduza a idade da pessoa", idade)
+        idades[nome] = idade
+    
+            imprime("Deseja introduzoir ")

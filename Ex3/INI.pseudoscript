@@ -27,8 +27,7 @@ funcao inserir_dados():
 funcao calcular_media(aluno):
 
     soma = 0
-    total_alunos = tamanho(aluno)
-    tamanho_notas = notas.tamanho
+    tamanho_notas = tamanho(notas)
 
     para cada chave em aluno:
          enquanto tamanho_notas > 0
@@ -46,3 +45,124 @@ imprime(inserir_dados())
 
 #dicionario[aluno].adicionar(nota1, nota2, nota3)
 #dictionario na posicao aluno(chave) adiciona nota(valor)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Permissa
+notas = () #base de dados
+
+
+#Desenvolvimento
+
+
+funcao Menu():
+    retorne "
+    Bem vindo ao calculo de nota!
+    
+    Escolha uma das seguintes opções:
+        1. Adicionar Aluno
+        2. Adicionar Nota a aluno
+        3. Calcular a média de cada aluno
+        Sair. Fechar o programa
+    "
+
+funcao AdicionaAluno(nome):
+    se nome NAO string ou nome.tamanho() < 2:
+        crash("Nome deve contsar pelo menos 2 caráteres")
+    
+    se nome em notas.chaves():
+        crash("Aluno {nome} já existe")
+
+    notas[nome] = []
+
+
+funcao AdicionaNota(aluno, nota)
+    se nota NAO numero:
+        crash("A nota deve ser um numérico")    
+    se nota < 0 OU > 20:
+        crash("A nota deve ser um valor entre 0 e 20")
+    
+    se aluno NAO string:
+        crash("O nome do aluno so pode conter caráteres")
+
+    se aluno NAO EM notas.chaves():
+        entrada("O nome do aluno {aluno} ainda não está registado. Pretende registar? [sim, yes, nao, no]", registar)
+        se registar EM ["sim", "yes"]:
+            AdicionaAluno(aluno)
+        senao:
+            crash("Adicione o aluno primeiro")
+
+    notas[aluno].adicionar(nota)
+
+    funcao CalcularMedias():
+        resultado = ()
+        
+        cada aluno, listaNotas em notas:
+            soma = 0
+            cada nota em listaNotas:
+                soma = soma+nota
+            resultado[aluno] = soma/listaNotas.tamanho()
+
+        retorne resultado       
+        
+
+#Execucao
+
+opcao = 0
+enquanto opcao NAO string:
+    imprime(Menu())
+    entrada("Qual a opção do menu: ", opcao)
+    se opcao == 1:
+        entrada("Qual o nome do aluno", nome_aluno)
+        AdicionaAluno()
+        imprime("Aluno {nome_Aluno} adicionado")
+    se opcao == 2:
+        entrada("Qual o nome do aluno", nome_aluno)
+        entrada("Qual a nota do aluno", nota)
+        AdicionarNota(nome_aluno, nota)
+        imprime("Nota adicionada com sucesso")
+    se opcao == 3:
+        medias = CalcularMedias()
+        imprime(medias)

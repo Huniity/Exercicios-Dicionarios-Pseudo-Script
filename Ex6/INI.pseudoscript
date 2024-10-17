@@ -15,7 +15,7 @@ funcao start():
                 registar_compras()
             se escolha1 == 2
                 total_compras()
-            break("Reposta errada")
+            crash("Reposta errada")
             
 
 funcao registar_compras():
@@ -23,7 +23,17 @@ funcao registar_compras():
     entrada("Por favor introduza o seu  artigo", artigo1)
         entrada("Por favor introduza o valor do artigo", valor1)
     
-    regfisto
+    registo_compras[artigo1] = valor1
+    start()
 
 
 funcao total_compras():
+
+    tamanho = tamanho(registo_compras)
+    soma = 0
+
+        enquanto tamanho > 0
+            cada valor em chave.registo_compras()
+                soma = soma + valor
+                    retorne resultado
+        imprime("O total do seu cesto de compras é de: " + resultado +)

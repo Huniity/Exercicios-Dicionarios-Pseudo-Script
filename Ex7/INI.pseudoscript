@@ -1,0 +1,41 @@
+#Agenda de Compromissos: Criar um programa que permita ao utilizador agendar
+#compromissos e a sua ordem. O programa deve mostrar os compromissos ordenados
+
+
+agenda = [{prioridade : compromisso}]
+
+
+funcao adicionar_compromisso():
+
+entrada("Por favor introduza a prioridade do seu compromisso [1-10]", prioridade)
+entrada("Por favor introduza o seu compromisso:", compromisso)
+    agenda[prioridade] = (compromisso, nota)
+
+entrada("Deseja criar mais compromissos ou ver os seus compromissos ordenados?", escolha1)
+    
+    se escolha1 == 1
+        ordenar_compromissos()
+    se escolha1 == 2
+        adicionar_compromisso()
+
+
+funcao ordenar_compromissos(agenda):
+
+indice_agenda = tamanho(agenda)
+pos = 0
+
+    enquanto tamanho_agenda > 0
+        para cada chave em agenda.chaves():
+            para cada pos em tamanho(agenda)-1
+                se agenda[pos][prioridade] > agenda[pos+1][prioridade]
+                    agenda[pos][prioridade], agenda[pos+1][prioridade] = agenda[pos+1][prioridade], agenda[prioridade][pos]
+                retorne resultado
+        
+    imprime(agenda)
+
+
+
+        
+
+
+    
