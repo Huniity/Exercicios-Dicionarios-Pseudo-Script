@@ -1,3 +1,90 @@
 #Sistema de Biblioteca: Criar um sistema de biblioteca que permita ao utilizador
 #pesquisar, emprestar e devolver livros. Nota: O aluno deve criar estruturas para
 #representar os livros e o estado de empréstimo.
+
+
+
+funcao PesquisarLivro(livro)
+
+livros = {
+            Python For Noobs {'Estado do Livro': 'Disponível'}
+            Java For Noobs {'Estado do Livro': 'Disponível'}
+            Rust For Noobs {'Estado do Livro': 'Disponível'}
+            Javascript For Noobs {'Estado do Livro': 'Disponível'}
+}
+
+    para cada livro, detalhe em livros:
+        imprime("{livro} atualmente está {livro['Estado do Livro']}")
+    imprime("Deseja reservar um livro? (SIM, NAO)", escolha)
+        se escolha EM ["SIM", "s"]
+            EmprestarLivro()
+
+
+
+funcao ReservarLivro(livro)
+
+livro_reservado = {}
+
+    para cada livro em livros.chaves()
+        imprime("Estes são os livros disponíveis {livro}")
+            entrada("Deseja emprestar um livro? (SIM/NAO)", escolha)
+                se escolha EM ["SIM", "s"]
+            entrada("Escolhe o livro que deseja reservar:", escolha_livro)
+                se livros[escolha_livro]['Estado do Livro'] = 'Disponivel'
+                    livro_reservado = livros[escolha_livro]
+                        imprime("O livro {escolha_livro} está reservado")
+                        livros[escolha_livro]['Estado do Livro'] = 'Indisponível'
+                se livros[escolha_livro]['Estado do Livro'] = 'Indisponível'
+                    imprime("O livro {escolha_livro} não está disponível.")
+                        entrada("Deseja emprestar outro? (SIM/NAO)", opcao)
+                            se opcao EM ["SIM", "s"]
+                                ReservarLivro()
+                            
+
+funcao DevolverLivro(livro)
+
+
+livros_reservado_atualizado = {}
+
+    para cada livro em livro_reservado.chaves()
+        imprime("Estes são os seus livros {livro}")
+            entrada("Deseja devolver um livro? (SIM/NAO)", escolha)
+                se escolha EM ["SIM", "s"]
+            entrada("Escolhe o livro que deseja devolver:", escolha_livro)
+                se escolha_livro EM livro_reservado[escolha_livro]
+                    para cada livro, detalhe em livro_reservado
+                        livros_reservado_atualizado.[livro].adicionar(livro_reservado[livro] != de escolha_livro)                        
+                        imprime("O livro {escolha_livro} está devolvido")
+                        livros[escolha_livro]['Estado do Livro'] = 'Disponível'+
+                        entrada("Deseja devolver outro? (SIM/NAO)", opcao)
+                            se opcao EM ["SIM", "s"]
+                                ReservarLivro()
+                            senao
+                                DevolverLivro()
+
+
+funcao Menu(opcao)
+
+    imprime("Bem vindo ao gestor da bibilioteca.")
+    imprime("1. Pesquisar um livro")
+    imprime("2. Emprestar um livro")
+    imprime("3. Devolver livros")
+    imprime("4. Sair")
+    entrada("Escolhe uma opcão digitando o numero por favor:", opcao)
+
+    se opcao NAO numero OU > 4 OU in < 1
+        break("Opção não válida")
+
+    se opcao == 1
+        PesquisarLivro()
+
+    se opcao == 2 
+        EmprestarLivro()
+
+    se opcao == 3
+        DevolverLivro()
+
+    se opcao == 4
+        break("Saindo do sistema")
+
+imprime.menu()

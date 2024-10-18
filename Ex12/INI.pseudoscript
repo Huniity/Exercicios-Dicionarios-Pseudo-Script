@@ -4,34 +4,6 @@
 #reservas.
 
 
-booking = 
-
-
-
-voo -> Faro Maldives
-            -> hotel -> Conrad
-                        Riu
-                        Pestana
-            -> carro -> Renault Clio Rs Line 
-                        Bmw Serie5
-                        Lamborghini Urus
-
-    -> Faro Dubai
-            -> hotel -> Conrad
-                        Riu
-                        Pestana
-            -> carro -> Renault Clio Rs Line
-                        Bmw Serie5
-                        Lamborghini Urus
-    -> Faro Paris
-            -> hotel -> Conrad
-                        Riu
-                        Pestana
-            -> carro -> Renault Clio Rs Line
-                        Bmw Serie5
-                        Lamborghini Urus
-
-
 attackertv.so         
 visualgo.net               
 reservado = { 
@@ -45,7 +17,7 @@ reservado = {
 }
 
 
-funcao ReservarVoo(reserva)
+funcao ReservarVoo(escolha_voo, escolha_lugares)
 
 voo = {
         78154: info {'Partida/Chegada': 'Faro/Paris', 'Hora de voo': '06h50', 'Preço': 120, 'Lugares Disponíveis': 3 }
@@ -54,7 +26,7 @@ voo = {
 }
 
     imprime("Estes são os voos disponíveis")
-        para cada numero_voo, info em voo():
+        para cada voo, info em voo():
             imprime("Voo: {voo} - Partida/Chegada: {info['Partida/Chegada']} | Hora de voo: {info['Hora de voo']} | Preço: {info['Preço']} | Lugares disponíveis: {info['Lugares Disponíveis']}")
     
     entradas("Por favor introduza um número de voo que pretende reservar:" escolha_voo)
@@ -76,19 +48,107 @@ voo = {
             reservado.[17772].['Voo'].adicionar(voo[escolha_voo])
     imprime("O seu voo {escolha_voo} foi reservado com sucesso! com o número de reserva {reservado}")
 
+ReservarHotel()
+
+funcao ReservarHotel(hotel, detalhe)
+
+hotel_paris = {
+                1: {'Nome do Hotel': 'Conrad', 'Tipo de Hotel': '5 Estrelas', 'Preço Por noite': '254'}
+                2: {'Nome do Hotel': 'Ibis', 'Tipo de Hotel': '3 Estrelas', 'Preço Por noite': '125'}
+                3: {'Nome do Hotel': 'Four Seasons', 'Tipo de Hotel': '4 Estrelas', 'Preço Por noite': '189'}
+}
+
+hotel_dubai = {
+                1: {'Nome do Hotel': 'Conrad', 'Tipo de Hotel': '6 Estrelas', 'Preço Por noite': '654'}
+                2: {'Nome do Hotel': 'The Palm', 'Tipo de Hotel': '5 Estrelas', 'Preço Por noite': '425'}
+                3: {'Nome do Hotel': 'Four Seasons', 'Tipo de Hotel': '4 Estrelas', 'Preço Por noite': '389'}
+}
+
+hotel_maldives = {
+                1: {'Nome do Hotel': 'Thai Beach', 'Tipo de Hotel': '5 Estrelas', 'Preço Por noite': '478'}
+                2: {'Nome do Hotel': 'Tivoli', 'Tipo de Hotel': '4 Estrelas', 'Preço Por noite': '435'}
+                3: {'Nome do Hotel': 'Four Seasons', 'Tipo de Hotel': '4 Estrelas', 'Preço Por noite': '325'}
+}
+
+
+    se reservado[17772]['Voo'] == Faro/Paris
+        entrada("Deseja reservar um hotel? [SIM/NAO]", escolha)
+            se escolha NAO em ["sim", "s"]
+                Menu()
+            imprime("Estes são os hoteis disponíveis para o seu destino")
+                para cada hotel,detalhe em hotel_paris
+                    imprime("{hotel_paris} - Nome do Hotel: {detalhe[Nome do Hotel]} | Tipo de hotel {detalhe[Tipo de Hotel]} | Preço por Noite: {detalhe[Preço Por noiteHotel]}")
+            entrada("Por favor introduza a sua escolha [1/2/3]", escolha2)
+                    se escolha2 NAO EM reservado[17772]['Hotel']
+                        reservado.[17772].['Hotel'].adicionar(hotel_paris[escolha2])
+                    entrada("Quantas noites quer reservar?"escolha3)
+                        se escolha3 NAO numero
+                            crash("Não número")
+                        reservado[17772]['Preço'] = reservado[17772]['Preço'] + (hotel_paris[escolha2]['Preco'] * escolha3)
+                    imprime("O seu hotel {hotel_paris} foi reservado")
+
+
+    se reservado[17772]['Voo'] == Faro/Dubai
+        entrada("Deseja reservar um hotel? [SIM/NAO]", escolha)
+            se escolha NAO em ["sim", "s"]
+                Menu()
+            imprime("Estes são os hoteis disponíveis para o seu destino")
+                para cada hotel,detalhe em hotel_dubai
+                    imprime("{hotel_dubai} - Nome do Hotel: {detalhe[Nome do Hotel]} | Tipo de hotel {detalhe[Tipo de Hotel]} | Preço por Noite: {detalhe[Preço Por noiteHotel]}")
+                entrada("Por favor introduza a sua escolha [1/2/3]", escolha2)
+                    se escolha2 NAO EM reservado[17772]['Hotel']
+                        reservado.[17772].['Hotel'].adicionar(hotel_dubai[escolha2])
+                    entrada("Quantas noites quer reservar?"escolha3)
+                        se escolha3 NAO numero
+                            crash("Não número")
+                        reservado[17772]['Preço'] = reservado[17772]['Preço'] + (hotel_paris[escolha2]['Preco'] * escolha3)
+                    imprime("O seu hotel {hotel_paris} foi reservado")
+    
+    se reservado[17772]['Voo'] == Faro/Maldives
+        entrada"Deseja reservar um hotel? [SIM/NAO]", escolha)
+            se escolha NAO em ["sim", "s"]
+                Menu()
+            imprime("Estes são os hoteis disponíveis para o seu destino")
+                para cada hotel,detalhe em hotel_maldives
+                    imprime("{hotel_maldives} - Nome do Hotel: {detalhe[Nome do Hotel]} | Tipo de hotel {detalhe[Tipo de Hotel]} | Preço por Noite: {detalhe[Preço Por noiteHotel]}")
+            entrada("Por favor introduza a sua escolha [1/2/3]", escolha2)
+                    se escolha2 NAO EM reservado[17772]['Hotel']
+                        reservado.[17772].['Hotel'].adicionar(hotel_maldives[escolha2])
+                    entrada("Quantas noites quer reservar?"escolha3)
+                        se escolha3 NAO numero
+                            crash("Não número")
+                        reservado[17772]['Preço'] = reservado[17772]['Preço'] + (hotel_paris[escolha2]['Preco'] * escolha3)
+                    imprime("O seu hotel {hotel_paris} foi reservado")
 
 
 
+funcao ReservarCarro(carro, detalhe)
+
+carros = {
+        1: {'Nome do Carro': 'Renault Clio', 'Classe': '1', 'Preço Por dia': '35'}
+        2: {'Nome do Carro': 'Mercedes C280', 'Classe': '2', 'Preço Por dia': '57'}
+        3: {'Nome do Carro': 'Porsche GT3', 'Classe': '4', 'Preço Por dia': '145'}
+}
+
+    imprime("Estes são os carros disponíveis:")
+        para cada carro, detalhe em carros:
+            imprime("{carro} - Nome do Carro: {detalhe[Nome do Carro]} | Classe: {detalhe[Classe]} | Preço por dia: {detalhe[Preço Por dia]}")
+                imprime("Deseja reservar um carro? [SIM/NAO]")
+                    se escolha NAO em ["sim", "s"]
+                        entrada("Por favor escolhe um carro (1/2/3)", escolha)
+                            se escolha NAO string E NAO em reservado[17772]['Carro']
+                                entrada("Quantos dias precisa de aluguer?", escolha2)
+                                    reservado.[17772].['Carro'].adicionar(carros[escolha])
+                                    reservado[17772]['Preço'] = reservado[17772]['Preço'] + (hotel_paris[escolha2]['Preco'] * escolha2)                            
 
 
 
+funcao ConsultarPreço()
 
-
-
-
-
-
-
+    imprimir("O seu preço total da sua reserva é:")
+    imprimir("{reservado[17772][Preço]}")
+    imprimir("O detalhes todos da sua reserva são:")
+    imprimir("{reservado[hotel]} - {reservado[hotel]} - {reservado[carro]}")
 
 
 #Execucão
@@ -98,10 +158,11 @@ funcao Menu(opcao)
     imprime("1. Reservar Voo")
     imprime("2. Reservar Hotel")
     imprime("3. Reservar Carro")
-    imprime("4. Sair")
+    imprimir("4. Consultar Preço TOTAL")
+    imprime("5. Sair")
     entrada("Escolhe uma opcão digitando o numero por favor:", opcao)
 
-    se opcao NAO numero OU > 4 OU in < 1
+    se opcao NAO numero OU > 5 OU in < 1
         break("Opção não válida")
 
     se opcao == 1
@@ -114,130 +175,9 @@ funcao Menu(opcao)
         ReservarCarro()
 
     se opcao == 4
+        ConsultarPreço()
+
+    se opcao == 5
         break("Saindo do sistema")
 
 imprime.menu()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Estruturas para armazenar voos, hotéis e carros
-voos = {
-    101: {'destino': 'Rio de Janeiro', 'horario': '08:00', 'preco': 500, 'assentos': 5},
-    102: {'destino': 'São Paulo', 'horario': '12:00', 'preco': 400, 'assentos': 3},
-    103: {'destino': 'Salvador', 'horario': '16:00', 'preco': 600, 'assentos': 2}
-}
-
-hoteis = {
-    'Hotel Rio': {'localizacao': 'Rio de Janeiro', 'preco_noite': 200, 'quartos_disponiveis': 10},
-    'Hotel SP': {'localizacao': 'São Paulo', 'preco_noite': 250, 'quartos_disponiveis': 5},
-    'Hotel Salvador': {'localizacao': 'Salvador', 'preco_noite': 150, 'quartos_disponiveis': 3}
-}
-
-carros = {
-    'Carro A': {'tipo': 'SUV', 'preco_dia': 100, 'disponivel': True},
-    'Carro B': {'tipo': 'Sedan', 'preco_dia': 80, 'disponivel': False},
-    'Carro C': {'tipo': 'Compacto', 'preco_dia': 60, 'disponivel': True}
-}
-
-# Função para reservar voo
-def reservar_voo():
-    print("Voos disponíveis:")
-    for voo, detalhes in voos.items():
-        print(f"Voo {voo} - Destino: {detalhes['destino']} | Horário: {detalhes['horario']} | Preço: R${detalhes['preco']} | Assentos disponíveis: {detalhes['assentos']}")
-    
-    voo_escolhido = int(input("Digite o número do voo que deseja reservar: "))
-    if voo_escolhido in voos and voos[voo_escolhido]['assentos'] > 0:
-        voos[voo_escolhido]['assentos'] -= 1
-        print(f"Voo {voo_escolhido} reservado com sucesso!")
-    else:
-        print("Voo indisponível ou sem assentos.")
-
-# Função para reservar hotel
-def reservar_hotel():
-    print("Hotéis disponíveis:")
-    for hotel, detalhes in hoteis.items():
-        print(f"Hotel {hotel} - Localização: {detalhes['localizacao']} | Preço por noite: R${detalhes['preco_noite']} | Quartos disponíveis: {detalhes['quartos_disponiveis']}")
-    
-    hotel_escolhido = input("Digite o nome do hotel que deseja reservar: ")
-    if hotel_escolhido in hoteis and hoteis[hotel_escolhido]['quartos_disponiveis'] > 0:
-        hoteis[hotel_escolhido]['quartos_disponiveis'] -= 1
-        print(f"Hotel {hotel_escolhido} reservado com sucesso!")
-    else:
-        print("Hotel indisponível ou sem quartos.")
-
-# Função para alugar carro
-def alugar_carro():
-    print("Carros disponíveis:")
-    for carro, detalhes in carros.items():
-        disponivel = "Sim" if detalhes['disponivel'] else "Não"
-        print(f"Carro {carro} - Tipo: {detalhes['tipo']} | Preço por dia: R${detalhes['preco_dia']} | Disponível: {disponivel}")
-    
-    carro_escolhido = input("Digite o nome do carro que deseja alugar: ")
-    if carro_escolhido in carros and carros[carro_escolhido]['disponivel']:
-        carros[carro_escolhido]['disponivel'] = False
-        print(f"Carro {carro_escolhido} alugado com sucesso!")
-    else:
-        print("Carro indisponível.")
-
-# Menu principal para o usuário escolher a ação
-def menu():
-    while True:
-        print("\nBem-vindo ao Sistema de Reservas de Viagens")
-        print("1. Reservar Voo")
-        print("2. Reservar Hotel")
-        print("3. Alugar Carro")
-        print("4. Sair")
-        
-        escolha = input("Digite o número da opção desejada: ")
-        
-        if escolha == '1':
-            reservar_voo()
-        elif escolha == '2':
-            reservar_hotel()
-        elif escolha == '3':
-            alugar_carro()
-        elif escolha == '4':
-            print("Saindo do sistema.")
-            break
-        else:
-            print("Opção inválida. Tente novamente.")
-
-# Executar o menu
-menu()

@@ -2,3 +2,101 @@
 #despesas e receitas pessoais. O programa deve calcular o saldo atual. Nota: O aluno
 #deve criar estruturas para representar despesas e receitas.
 
+total_despesa = 0
+total_receita = 0
+
+
+
+funcao RegistarDespesa(despesa)
+
+
+despesas = {
+            Casa: {'Tipo de Despesa': 'Casa', 'Valor da Despesa': 0}
+            Carro: {'Tipo de Despesa': 'Carro', 'Valor da Despesa': 0}
+            Lazer: {'Tipo de Despesa': 'Lazer', 'Valor da Despesa': 0}
+}
+
+    para cada despesa em despesas.chave()
+        imprime("Estes são os tipos de despesas disponiveis")
+        imprime("{despesa}")
+        entrada("Por favor introduza um tipo de despesa", escolha_despesa)
+            se escolha_despesa NAO EM despesas[escolha_despesa]
+                crash("Despesa não disponível")
+            entrada("Por favor introduza o valor da despesa {escolha_despesa}", valor_despesa)
+                se valor_despesa NAO numero
+                    crash("Não é um valor válido")
+                despesas[escolha_despesa]['Valor da Despesa'] = valor_despesa
+
+
+    para cada despesa, detalhe em despesas
+        se despesas[despesa]['Valor da Despesa'] NAO 0
+            total_despesa = total_despesa + despesas[despesa]['Valor da Despesa']
+                para cada despesa, detalhe em despesas
+                    despesas[escolha_despesa]['Valor da Despesa'] = 0
+
+
+
+
+funcao RegistarReceita(receita)
+
+
+
+receita = {
+            Trabalho: {'Tipo de Receita': 'Trabalho', 'Valor da Receita': 0}
+            Vendas: {'Tipo de Vendas': 'Vendas', 'Valor da Receita': 0}
+            Extra: {'Tipo de Extra': 'Extra', 'Valor da Receita': 0}
+}
+
+    para cada receita em receita.chave()
+        imprime("Estes são os tipos de receita disponiveis")
+        imprime("{receita}")
+        entrada("Por favor introduza um tipo de receita", escolha_receita)
+            se escolha_receita NAO EM receita[escolha_receita]
+                crash("Receita não disponível")
+            entrada("Por favor introduza o valor da receita {escolha_receita}", valor_receita)
+                se valor_receita NAO numero
+                    crash("Não é um valor válido")
+                receitas[escolha_receita]['Valor da receita'] = valor_receita
+
+
+    para cada receita, detalhe em receitas
+        se receitas[receita]['Valor da Receita'] NAO 0
+            total_receita = total_receita + receita[receita]['Valor da Receita']
+                para cada despesa, detalhe em despesas
+                    despesas[escolha_despesa]['Valor da Despesa'] = 0
+
+funcao CalcularSaldo()
+
+saldo = 0
+saldo_final = 0
+
+    saldo = saldo - total_despesa
+        saldo_final = saldo + total_receita
+            imprime("O seu saldo atual é de " + saldo_final + )
+
+
+funcao Menu(opcao)
+
+    imprime("Bem vindo ao gestor da bibilioteca.")
+    imprime("1. Registar Despesa")
+    imprime("2. Registar Receita")
+    imprime("3. Calcular Saldo Atual")
+    imprime("4. Sair")
+    entrada("Escolhe uma opcão digitando o numero por favor:", opcao)
+
+    se opcao NAO numero OU > 4 OU in < 1
+        break("Opção não válida")
+
+    se opcao == 1
+        RegistarDespesa()
+
+    se opcao == 2 
+        RegistarReceita()
+
+    se opcao == 3
+        CalcularSaldo()
+
+    se opcao == 4
+        break("Saindo do sistema")
+
+imprime.menu()
